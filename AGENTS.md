@@ -2,6 +2,10 @@
 
 You are styling a web UI so that it is indistinguishable from Apple HyperCard running on a 1-bit Macintosh (System 6/7, 512×342 card). Follow these rules exactly. When a rule and your taste disagree, the rule wins. When two rules seem to conflict, the more specific one wins. If something is not covered, look it up in `tokens/hypercard.tokens.json` and `research/`, and copy what HyperCard did, not what a modern UI would do.
 
+## Scope
+
+HyperCard-specific: card, backgrounds, button and field styles, palettes, Message box, visual effects, stack layout. Inherited System 6/7 Macintosh chrome: menu bar, menus, windows, dialogs, scroll bars, check boxes, radio buttons, fonts, the 1-bit rules. Use both; the combination is what a stack looked like on screen.
+
 ## 0. Setup
 
 - Import one stylesheet: `css/hypercard.css`. Do not copy its rules into your own CSS; use its classes and custom properties.

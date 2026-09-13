@@ -2,6 +2,8 @@
 
 A standalone, reusable reproduction of Apple HyperCard's look (1987–1998, on the 1-bit Macintosh): design tokens, CSS components, the 28 visual effects, the 40 paint patterns, the browse-hand cursor, and rules written for both people and coding agents.
 
+**Scope, honestly:** about half of this is HyperCard proper (the 512 × 342 card, the 11 button styles, the 5 field styles, the Tools and Patterns palettes, the Message box, the 28 visual effects, the stack conventions). The other half is System 6/7 Macintosh chrome that HyperCard inherited from Apple's Toolbox and that every Mac app of the era shared: menu bar and menus, document windows, dialog frames, scroll bars, check boxes and radio buttons, Chicago and Geneva, and the 1-bit rules. It is called a HyperCard design system because that is what the whole set looks like together: a stack running on a Mac.
+
 Everything is measured from primary sources (Apple's Toolbox source, *Inside Macintosh*, the *HyperCard Stack Design Guidelines*, the HyperCard 2.x reference, System 6/7 screenshots) and the source and confidence level of every number is recorded in [research/](research/). Nothing in this repo depends on a framework or a build step; it is plain CSS and one ES module.
 
 ```
