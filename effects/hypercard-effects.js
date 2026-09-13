@@ -57,9 +57,10 @@ function layer(kind, stage) {
   return el;
 }
 /** Run fn(t) for t in (0,1] over `duration` ms in discrete frames. */
-async function frames(duration, fps, fn) {
+async function frames(duration, fps, fn, signal) {
   const n = Math.max(2, Math.round(duration / 1000 * fps)), dt = duration / n;
-  for (let i = 1; i <= n; i++) { fn(i / n, i, n); await wait(dt); }
+  for (let i = 1; i <= n; i++) { if (signal?.aborted) return false; fn(i / n, i, n); await wait(dt); }
+  return !signal?.aborted;
 }
 
 /** Parse HyperTalk-ish syntax: "[visual [effect]] <name> [speed] [to <image>]". */
@@ -121,10 +122,11 @@ const EFFECTS = {
   async 'zoom close'(ctx) { ctx.show(ctx.to); await ctx.zoomRects(t => 1 - t); }
 };
 
-function makeContext(stage, from, to, duration, fps, origin) {
+function makeContext(stage, from, to, duration, fps, origin, signal) {
   const ctx = {
-    from, to, duration,
-    frames: fn => frames(duration, fps, fn),
+    from, to, duration, signal,
+    get aborted() { return Boolean(signal?.aborted); },
+    frames: fn => frames(duration, fps, fn, signal),
     /** Put `to` on top (attached above `from`). */
     show(el) { if (el && el.parentNode !== stage) stage.append(el); if (el) el.style.visibility = ''; },
     /** Reveal `to` on top through a growing clip-path. */
@@ -173,21 +175,24 @@ function makeContext(stage, from, to, duration, fps, origin) {
 /**
  * Go to `next` (an element) inside `stage` with one or more effects.
  * effects: a string ('dissolve slowly'), an object {effect, speed, to}, or an array of those (HyperCard queues them).
- * options: { fps, origin: {x, y} (for zoom open), speeds: {...} }
+ * options: { fps, origin: {x, y} (for zoom open), speeds: {...}, signal: AbortSignal }
+ * Aborting stops at the next frame and leaves whatever is on the stage; the caller decides what to show instead.
  */
 export async function go(stage, next, effects = 'plain', options = {}) {
   const list = (Array.isArray(effects) ? effects : [effects]).map(e => typeof e === 'string' ? parse(e) : { speed: 'normal', to: 'card', ...e });
   const fps = options.fps ?? 12, speeds = { ...SPEEDS, ...(options.speeds ?? {}) };
   let current = stage.querySelector(':scope > .hc-card') ?? stage.firstElementChild;
   if (next) { next.style.position = 'absolute'; next.style.inset = '0'; next.classList.add('hc-card'); }
-  if (reduced()) { if (next) stage.append(next); if (current && current !== next) current.remove(); stage.querySelectorAll(':scope > .hc-effect-layer').forEach(l => l.remove()); return; }
+  const signal = options.signal;
+  if (reduced() || signal?.aborted) { if (next) stage.append(next); if (current && current !== next) current.remove(); stage.querySelectorAll(':scope > .hc-effect-layer').forEach(l => l.remove()); return; }
   for (let i = 0; i < list.length; i++) {
+    if (signal?.aborted) break;
     const step = list[i], last = i === list.length - 1;
     const target = step.to === 'card' ? next : layer(step.to, stage);
     if (!target) continue;
     const run = EFFECTS[step.effect];
     if (!run) throw new Error(`Unknown visual effect: ${step.effect}`);
-    const ctx = makeContext(stage, current, target, speeds[step.speed] ?? SPEEDS.normal, fps, options.origin);
+    const ctx = makeContext(stage, current, target, speeds[step.speed] ?? SPEEDS.normal, fps, options.origin, signal);
     await run(ctx);
     if (current && current !== target) current.remove();
     current = target;
@@ -196,22 +201,26 @@ export async function go(stage, next, effects = 'plain', options = {}) {
   stage.querySelectorAll(':scope > .hc-effect-layer').forEach(l => { if (l !== current) l.remove(); });
 }
 
-/** Remove `element` with an effect (dissolve, wipe, iris close, barn door close, shrink, zoom close, plain). */
+/** Remove `element` with an effect (dissolve, wipe, iris close, barn door close, shrink, zoom close, plain).
+ * options: { duration, fps, signal: AbortSignal }. An aborted hide stops at the next frame, clears the effect
+ * styles and leaves the element visible, so the caller decides what happens instead. Resolves true when hidden. */
 export async function hide(element, effect = 'dissolve', options = {}) {
   const step = typeof effect === 'string' ? parse(effect) : { speed: 'normal', ...effect };
-  const duration = options.duration ?? (SPEEDS[step.speed] ?? SPEEDS.normal), fps = options.fps ?? 12;
-  const done = () => { element.hidden = true; clearFx(element); };
-  if (reduced() || step.effect === 'plain') { done(); return; }
+  const duration = options.duration ?? (SPEEDS[step.speed] ?? SPEEDS.normal), fps = options.fps ?? 12, signal = options.signal;
+  const done = () => { element.hidden = true; clearFx(element); return true; };
+  const stopped = () => { clearFx(element); return false; };
+  if (signal?.aborted) return stopped();
+  if (reduced() || step.effect === 'plain') return done();
   const rect = element.getBoundingClientRect();
-  if (step.effect === 'dissolve') { await frames(duration, fps, t => setMask(element, ditherTile(Math.max(0, 64 - Math.round(t * 64))))); done(); return; }
+  if (step.effect === 'dissolve') return await frames(duration, fps, t => setMask(element, ditherTile(Math.max(0, 64 - Math.round(t * 64)))), signal) ? done() : stopped();
   const clips = {
     'wipe left': t => `inset(0 ${t * 100}% 0 0)`, 'wipe right': t => `inset(0 0 0 ${t * 100}%)`, 'wipe up': t => `inset(0 0 ${t * 100}% 0)`, 'wipe down': t => `inset(${t * 100}% 0 0 0)`,
     'iris close': t => `inset(${t * 50}% ${t * 50}%)`, 'barn door close': t => `inset(0 ${t * 50}%)`
   };
-  if (clips[step.effect]) { await frames(duration, fps, t => { element.style.clipPath = clips[step.effect](t); }); done(); return; }
-  if (step.effect.startsWith('shrink to')) { const edge = step.effect.split(' ').pop(); element.style.transformOrigin = `50% ${edge === 'top' ? '0%' : edge === 'bottom' ? '100%' : '50%'}`; await frames(duration, fps, t => { element.style.transform = `scaleY(${1 - t})`; }); done(); return; }
-  if (step.effect === 'zoom close') { element.style.transformOrigin = '50% 50%'; await frames(duration, fps, t => { element.style.clipPath = `inset(${t * 50}% ${t * 50}%)`; }); done(); return; }
-  void rect; done();
+  if (clips[step.effect]) return await frames(duration, fps, t => { element.style.clipPath = clips[step.effect](t); }, signal) ? done() : stopped();
+  if (step.effect.startsWith('shrink to')) { const edge = step.effect.split(' ').pop(); element.style.transformOrigin = `50% ${edge === 'top' ? '0%' : edge === 'bottom' ? '100%' : '50%'}`; return await frames(duration, fps, t => { element.style.transform = `scaleY(${1 - t})`; }, signal) ? done() : stopped(); }
+  if (step.effect === 'zoom close') { element.style.transformOrigin = '50% 50%'; return await frames(duration, fps, t => { element.style.clipPath = `inset(${t * 50}% ${t * 50}%)`; }, signal) ? done() : stopped(); }
+  void rect; return done();
 }
 
 export const HyperCardEffects = { go, hide, parse, speeds: SPEEDS, effects: Object.keys(EFFECTS) };

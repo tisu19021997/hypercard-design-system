@@ -74,6 +74,7 @@ Rules for using them:
   - Names: `barn door open|close`, `checkerboard`, `dissolve`, `iris open|close`, `plain`, `push left|right|up|down`, `scroll left|right|up|down`, `shrink to top|center|bottom`, `stretch from top|center|bottom`, `venetian blinds`, `wipe left|right|up|down`, `zoom open|close`.
   - Speeds: `very slowly`, `slowly`, (none), `fast`, `very fast`.
 - Element appearing or leaving (popup, bubble, tooltip): `HyperCardEffects.hide(el, 'dissolve fast')` or a wipe/iris/barn door/shrink. Show with a cut.
+- When a newer event can interrupt an effect, pass `options.signal` (an `AbortSignal`) to `go`/`hide` and abort it instead of racing your own flags. An aborted `hide` resolves `false` and leaves the element visible.
 - Idle indicators: `.hc-blink` (2-step) or `.hc-ants` (marching selection). Nothing pulses smoothly.
 - Respect `prefers-reduced-motion`: the module already cuts instead of animating; your own code must not add motion behind its back.
 

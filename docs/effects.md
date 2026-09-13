@@ -53,6 +53,16 @@ await HyperCardEffects.hide(popup, 'dissolve fast');   // also: wipe *, iris clo
 
 Sets `hidden` on the element when done. Use it for bubbles, popups and tooltips that should leave the HyperCard way. Show them with a cut.
 
+## Cancelling
+
+Both `go` and `hide` accept `options.signal`, an `AbortSignal`. Aborting stops at the next frame rather than mid-paint. An aborted `hide` clears the effect styles and leaves the element visible, and resolves `false`; a completed one hides the element and resolves `true`. Use it when a newer event can replace what is on screen:
+
+```js
+controller?.abort();
+controller = new AbortController();
+if (await HyperCardEffects.hide(bubble, 'dissolve fast', { signal: controller.signal })) showNextThing();
+```
+
 ## Parsing
 
 `HyperCardEffects.parse('wipe left very fast to gray')` → `{ effect: 'wipe left', speed: 'very fast', to: 'gray' }`. `HyperCardEffects.effects` lists the 28 names.
