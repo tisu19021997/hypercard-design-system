@@ -2,6 +2,10 @@
 
 A standalone, reusable reproduction of Apple HyperCard's look (1987–1998, on the 1-bit Macintosh): design tokens, CSS components, the 28 visual effects, the 40 paint patterns, the browse-hand cursor, and rules written for both people and coding agents.
 
+![A HyperCard card in a document window: striped title bar, icon buttons, a field with dotted baselines, and round-rect buttons](docs/images/window.png)
+
+Every image below is a screenshot of [examples/index.html](examples/index.html), regenerated with `npm run shots`. Nothing is mocked up.
+
 **Scope, honestly:** about half of this is HyperCard proper (the 512 × 342 card, the 11 button styles, the 5 field styles, the Tools and Patterns palettes, the Message box, the 28 visual effects, the stack conventions). The other half is System 6/7 Macintosh chrome that HyperCard inherited from Apple's Toolbox and that every Mac app of the era shared: menu bar and menus, document windows, dialog frames, scroll bars, check boxes and radio buttons, Chicago and Geneva, and the 1-bit rules. It is called a HyperCard design system because that is what the whole set looks like together: a stack running on a Mac.
 
 Everything is measured from primary sources (Apple's Toolbox source, *Inside Macintosh*, the *HyperCard Stack Design Guidelines*, the HyperCard 2.x reference, System 6/7 screenshots) and the source and confidence level of every number is recorded in [research/](research/). Nothing in this repo depends on a framework or a build step; it is plain CSS and one ES module.
@@ -37,6 +41,27 @@ await HyperCardEffects.hide(popup, 'wipe left fast');
 
 Open [examples/index.html](examples/index.html) over HTTP (`npx serve .` or `python3 -m http.server`) for a kitchen sink of every component and an interactive effects tester. ES modules do not load from `file://`.
 
+## What it gives you
+
+| | |
+|---|---|
+| **Buttons and controls** — all eleven HyperCard 2.x button styles, check box and radio, with pressed and disabled states | **Fields** — the five field styles plus showLines, wideMargins, and the 16 px scroll bar |
+| ![Eleven button styles, a check box and a radio button](docs/images/controls.png) | ![Five field styles including a scrolling field](docs/images/fields.png) |
+| **Windows, dialogs, the Message box** — dBoxProc, altDBoxProc and the windoid | **Patterns and states** — the 40 paint patterns, the Tools palette, inverse video and dither |
+| ![A dBoxProc dialog with Cancel and a ringed default OK button](docs/images/dialogs.png) | ![The Tools and Patterns palettes with gray swatches](docs/images/patterns.png) |
+
+**Type** — Chicago for the system, Geneva for the user, Geneva 9 for small labels, Monaco for scripts, on the six-size ramp:
+
+![The five type roles with the HyperCard text styles and the six sizes](docs/images/type.png)
+
+**Visual effects**, caught halfway through, running from `effects/hypercard-effects.js`:
+
+| dissolve | checkerboard |
+|---|---|
+| ![Ordered-dither tiles revealing the next card](docs/images/effect-dissolve.png) | ![A 16 by 9 grid of squares replacing the card](docs/images/effect-checkerboard.png) |
+
+The whole demo page in one image: [docs/images/kitchen-sink.png](docs/images/kitchen-sink.png).
+
 ## The five rules (see [AGENTS.md](AGENTS.md) for the full list)
 
 1. **Two colors.** `#000` and `#fff`. Gray is a pattern (`--hc-pattern-22`) or a dither mask (`.hc-dimmed`), never `#808080`, never opacity.
@@ -71,6 +96,7 @@ Apple's Chicago, Geneva, Monaco and New York cannot be redistributed, so this re
 ```bash
 npm run build   # regenerate css/patterns.css, css/cursors.css, css/tokens.css from the JSON sources
 npm run check   # verify the generated CSS is in sync, braces balance, tokens parse, effects module loads
+npm run shots   # re-screenshot examples/index.html into docs/images (uses your installed Chrome)
 ```
 
 ## Scope and honesty

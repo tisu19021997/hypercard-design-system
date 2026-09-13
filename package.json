@@ -4,7 +4,17 @@
   "description": "A design system that reproduces Apple HyperCard's 1-bit Macintosh look: tokens, CSS, visual effects, patterns, cursor, and agent-readable rules.",
   "license": "MIT",
   "type": "module",
-  "files": ["css", "tokens", "effects", "patterns", "cursors", "fonts", "docs", "README.md", "AGENTS.md"],
+  "files": [
+    "css",
+    "tokens",
+    "effects",
+    "patterns",
+    "cursors",
+    "fonts",
+    "docs",
+    "README.md",
+    "AGENTS.md"
+  ],
   "exports": {
     ".": "./css/hypercard.css",
     "./css/*": "./css/*",
@@ -13,6 +23,10 @@
   },
   "scripts": {
     "build": "node scripts/build-patterns.mjs && node scripts/build-tokens.mjs",
-    "check": "node scripts/check.mjs"
+    "check": "node scripts/check.mjs",
+    "shots": "node scripts/screenshot.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.58.2"
   }
 }
