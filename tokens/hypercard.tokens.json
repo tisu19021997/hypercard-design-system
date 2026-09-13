@@ -1,0 +1,149 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "HyperCard design tokens. Every dimension is a whole CSS pixel at 1x (the classic Mac's 72 dpi point). Sources and confidence per value are in research/. The 'hc' prefix is reserved for this system.",
+  "color": {
+    "$description": "HyperCard is 1-bit. There are exactly two colors. Gray never exists as a color; it is a pattern (see pattern.*) or a dither mask.",
+    "black": { "$type": "color", "$value": "#000000" },
+    "white": { "$type": "color", "$value": "#ffffff" }
+  },
+  "card": {
+    "$description": "The card is the unit of layout. HyperCard 1.x cards are exactly 512x342; 2.x allows other sizes with width a multiple of 16.",
+    "width":  { "$type": "dimension", "$value": "512px" },
+    "height": { "$type": "dimension", "$value": "342px" },
+    "width-step": { "$type": "dimension", "$value": "16px", "$description": "2.x card widths and window x positions snap to multiples of 16." }
+  },
+  "font": {
+    "$description": "Roles, not families. Chicago 12 is the system font (menus, titles, button names). Geneva 12 is text (fields, Message box). Monaco 9 is the script font. Geneva 9 is small utility text. New York is the serif.",
+    "chicago": { "$type": "fontFamily", "$value": ["HC Chicago", "Krungthep", "Silom", "Chicago", "Geneva", "sans-serif"], "$description": "HC Chicago is the @font-face in css/fonts.css that maps to a pixel recreation (Chicago Kare) when present; Krungthep/Silom ship with macOS and carry Chicago's Latin glyphs." },
+    "geneva":  { "$type": "fontFamily", "$value": ["Geneva", "HC Geneva", "Helvetica Neue", "Arial", "sans-serif"], "$description": "Apple's Geneva.ttf ships with macOS and covers Vietnamese." },
+    "geneva-small": { "$type": "fontFamily", "$value": ["HC Geneva 9", "Geneva", "sans-serif"] },
+    "monaco":  { "$type": "fontFamily", "$value": ["Monaco", "HC Monaco", "Menlo", "monospace"] },
+    "serif":   { "$type": "fontFamily", "$value": ["Times", "Times New Roman", "Georgia", "serif"], "$description": "New York stand-in; Apple's New York is unreachable from Chromium." },
+    "size": {
+      "$description": "The classic Style menu sizes. Points equal pixels.",
+      "9":  { "$type": "dimension", "$value": "9px" },
+      "10": { "$type": "dimension", "$value": "10px" },
+      "12": { "$type": "dimension", "$value": "12px" },
+      "14": { "$type": "dimension", "$value": "14px" },
+      "18": { "$type": "dimension", "$value": "18px" },
+      "24": { "$type": "dimension", "$value": "24px" }
+    },
+    "line-height": {
+      "$description": "ascent + descent + leading, from the real bitmap strikes.",
+      "chicago-12": { "$type": "dimension", "$value": "16px" },
+      "geneva-12":  { "$type": "dimension", "$value": "16px" },
+      "geneva-9":   { "$type": "dimension", "$value": "12px" },
+      "geneva-10":  { "$type": "dimension", "$value": "12px" },
+      "geneva-14":  { "$type": "dimension", "$value": "18px" },
+      "geneva-18":  { "$type": "dimension", "$value": "22px" },
+      "geneva-24":  { "$type": "dimension", "$value": "28px" },
+      "monaco-9":   { "$type": "dimension", "$value": "12px" },
+      "monaco-12":  { "$type": "dimension", "$value": "16px" }
+    },
+    "metrics": {
+      "chicago-12": { "$type": "other", "$value": { "capHeight": 9, "xHeight": 7, "stem": 2, "ascent": 12, "descent": 3, "leading": 1, "space": 4 } },
+      "geneva-12":  { "$type": "other", "$value": { "capHeight": 9, "ascent": 12, "descent": 3, "leading": 1 } },
+      "geneva-9":   { "$type": "other", "$value": { "capHeight": 7, "ascent": 10, "descent": 2, "leading": 0 } },
+      "monaco-9":   { "$type": "other", "$value": { "advance": 6, "ascent": 9, "descent": 3 } }
+    }
+  },
+  "line": {
+    "hairline": { "$type": "dimension", "$value": "1px", "$description": "Every border is 1 px black unless a component says otherwise." },
+    "thick":    { "$type": "dimension", "$value": "2px", "$description": "Pressed check box / radio frame; dialog inner border." },
+    "ring":     { "$type": "dimension", "$value": "3px", "$description": "Default-button ring thickness." }
+  },
+  "shadow": {
+    "$description": "Shadows are hard, black, offset right and down. Never blurred.",
+    "window": { "$type": "dimension", "$value": "1px" },
+    "menu":   { "$type": "dimension", "$value": "1px", "$description": "Starts 3 px down / 3 px in." },
+    "alt-dialog": { "$type": "dimension", "$value": "2px" },
+    "part":   { "$type": "dimension", "$value": "2px", "$description": "HyperCard shadow-style buttons and fields, and the round-rect button." },
+    "icon":   { "$type": "dimension", "$value": "2px", "$description": "Drop shadow on Susan Kare's block arrows and card stacks." }
+  },
+  "radius": {
+    "roundrect": { "$type": "dimension", "$value": "7px", "$description": "HyperCard 1.x round-rect button corner (arc diameter 14, medium confidence)." },
+    "standard":  { "$type": "dimension", "$value": "5px", "$description": "Toolbox push button: oval = min(width, height/2) = 10 for a 20 px button." },
+    "ring":      { "$type": "dimension", "$value": "8px", "$description": "Default ring FrameRoundRect(16,16)." },
+    "popup":     { "$type": "dimension", "$value": "0px" }
+  },
+  "menubar": {
+    "height":   { "$type": "dimension", "$value": "20px", "$description": "19 white rows plus a 1 px black bottom line." },
+    "baseline": { "$type": "dimension", "$value": "14px" },
+    "padding-x": { "$type": "dimension", "$value": "7px", "$description": "Text of the first title starts 7 px in." },
+    "title-gap": { "$type": "dimension", "$value": "13px", "$description": "Title cell = string width + 13." },
+    "item-height": { "$type": "dimension", "$value": "16px" },
+    "item-padding-left": { "$type": "dimension", "$value": "14px", "$description": "checkmark cell (12) + 2." },
+    "item-padding-right": { "$type": "dimension", "$value": "13px", "$description": "Room for the command-key column." },
+    "submenu-arrow": { "$type": "other", "$value": { "width": 6, "height": 11, "right": 14, "top": 2 } }
+  },
+  "window": {
+    "titlebar-height": { "$type": "dimension", "$value": "19px", "$description": "Plus the 1 px line beneath = the 20 px of Inside Macintosh prose." },
+    "stripe-first-row": { "$type": "dimension", "$value": "4px" },
+    "stripe-pitch":     { "$type": "dimension", "$value": "2px" },
+    "stripe-count":     { "$type": "number", "$value": 6 },
+    "stripe-band":      { "$type": "dimension", "$value": "11px", "$description": "Rows 4 through 14." },
+    "title-padding":    { "$type": "dimension", "$value": "6px", "$description": "White gap between the title text and the stripes on each side." },
+    "title-baseline":   { "$type": "dimension", "$value": "13px" },
+    "box-size":         { "$type": "dimension", "$value": "11px", "$description": "Close and zoom boxes: 11x11 hollow squares in a 13x13 cell." },
+    "box-top":          { "$type": "dimension", "$value": "4px" },
+    "box-inset":        { "$type": "dimension", "$value": "10px", "$description": "From the frame to the box outline, both sides." },
+    "zoom-inner":       { "$type": "dimension", "$value": "6px", "$description": "Zoom box inner square, top-left." },
+    "grow-box":         { "$type": "dimension", "$value": "15px" },
+    "border":           { "$type": "dimension", "$value": "1px" }
+  },
+  "dialog": {
+    "$description": "Modal dialog (dBoxProc) double outline, from the outside in: 1 black, 2 white, 2 black, 3 white.",
+    "outer":  { "$type": "dimension", "$value": "1px" },
+    "gap":    { "$type": "dimension", "$value": "2px" },
+    "inner":  { "$type": "dimension", "$value": "2px" },
+    "inset":  { "$type": "dimension", "$value": "3px" },
+    "total":  { "$type": "dimension", "$value": "8px" }
+  },
+  "button": {
+    "height":     { "$type": "dimension", "$value": "20px" },
+    "min-width":  { "$type": "dimension", "$value": "59px", "$description": "OK and Cancel." },
+    "padding-x":  { "$type": "dimension", "$value": "8px", "$description": "Minimum on each side of the name." },
+    "ring-gap":   { "$type": "dimension", "$value": "1px" },
+    "ring-outset": { "$type": "dimension", "$value": "4px", "$description": "Ring outer edge sits 4 px outside the button (3 px ring + 1 px gap)." },
+    "checkbox":   { "$type": "dimension", "$value": "12px" },
+    "radio":      { "$type": "dimension", "$value": "12px" },
+    "radio-dot":  { "$type": "dimension", "$value": "6px" },
+    "label-offset": { "$type": "dimension", "$value": "16px", "$description": "Box at +2, label at +16." },
+    "popup-arrow": { "$type": "other", "$value": { "width": 12, "height": 6 } }
+  },
+  "field": {
+    "margin-narrow": { "$type": "dimension", "$value": "1px" },
+    "margin-wide":   { "$type": "dimension", "$value": "6px", "$description": "'Approximately one character'; medium confidence." },
+    "margin-wide-top": { "$type": "dimension", "$value": "8px", "$description": "'About one-half line'." },
+    "line-pitch":    { "$type": "dimension", "$value": "16px", "$description": "textHeight default = trunc(4/3 * textSize) = 16 for Geneva 12; showLines rules land on each baseline." }
+  },
+  "scrollbar": {
+    "width":  { "$type": "dimension", "$value": "16px" },
+    "arrow":  { "$type": "dimension", "$value": "16px" },
+    "thumb":  { "$type": "dimension", "$value": "16px", "$description": "Fixed-size square, not proportional." },
+    "track-pattern": { "$type": "other", "$value": "ltGray", "$description": "25% dither per Executor; many recreations wrongly use 50%." }
+  },
+  "palette": {
+    "tools":    { "$type": "other", "$value": { "columns": 3, "rows": 6, "count": 18 } },
+    "patterns": { "$type": "other", "$value": { "columns": 4, "rows": 10, "count": 40, "cell": 8, "order": "top-to-bottom then left-to-right" } }
+  },
+  "icon": {
+    "size": { "$type": "dimension", "$value": "32px", "$description": "ICON resources are 32x32 1-bit, white transparent." },
+    "margin": { "$type": "dimension", "$value": "3px", "$description": "Glyphs sit roughly centered with 2-4 px margin." },
+    "cursor": { "$type": "other", "$value": { "size": 16, "browseHotspot": [6, 0] } }
+  },
+  "effect": {
+    "$description": "HyperCard visual effects. Apple never published durations; these are this system's interpretation, tuned so 'normal' reads as a deliberate transition on a modern screen.",
+    "speed": {
+      "very-fast": { "$type": "duration", "$value": "150ms" },
+      "fast":      { "$type": "duration", "$value": "300ms" },
+      "normal":    { "$type": "duration", "$value": "600ms" },
+      "slow":      { "$type": "duration", "$value": "1200ms" },
+      "very-slow": { "$type": "duration", "$value": "2400ms" }
+    },
+    "fps": { "$type": "number", "$value": 12, "$description": "Effects step in discrete frames; a Mac Plus redrew in stages, not at 60 fps." },
+    "checkerboard": { "$type": "other", "$value": { "columns": 16, "rows": 9 } },
+    "venetian-blinds": { "$type": "other", "$value": { "strips": 9 } },
+    "dissolve-cell": { "$type": "dimension", "$value": "8px", "$description": "Ordered dither over an 8x8 tile, densest last." }
+  }
+}

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HyperCard design system — kitchen sink</title>
+<link rel="stylesheet" href="../css/hypercard.css">
+<style>
+  /* Demo scaffolding only. Everything visible comes from ../css/hypercard.css. */
+  html, body { margin: 0; }
+  body.hc { background: var(--hc-color-white); }
+  .demo { display: grid; gap: 24px; padding: 24px; grid-template-columns: repeat(auto-fill, minmax(512px, 1fr)); align-items: start; }
+  .demo > section { display: grid; gap: 12px; align-content: start; }
+  .demo h2 { margin: 0; font: 12px/16px var(--hc-font-chicago); border-bottom: 1px solid #000; padding-bottom: 3px; }
+  .row { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+  .col { display: grid; gap: 8px; }
+  .label { font: 9px/12px var(--hc-font-geneva-small); }
+  .swatch { width: 64px; height: 32px; border: 1px solid #000; background-size: 8px 8px; }
+  #fx-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  #fx-controls select { height: 20px; font: 12px/16px var(--hc-font-chicago); border: 1px solid #000; background: #fff; box-shadow: 1px 1px 0 #000; }
+</style>
+</head>
+<body class="hc">
+
+<!-- Menu bar (Chicago 12, 20 px, first title 7 px in) -->
+<div class="hc-menubar" role="menubar">
+  <span class="hc-apple" aria-label="Apple menu"></span>
+  <span class="is-open">File</span><span>Edit</span><span>Go</span><span>Tools</span><span>Objects</span><span>Font</span><span>Style</span>
+</div>
+<ul class="hc-menu" style="position:absolute; left: 29px; top: 20px;" role="menu">
+  <li>New Stack…</li><li>Open Stack…<span class="hc-key">⌘O</span></li><li>Close Stack<span class="hc-key">⌘W</span></li>
+  <li class="hc-separator"></li>
+  <li class="is-dimmed hc-dimmed">Save a Copy…</li><li>Compact Stack</li><li>Protect Stack…</li><li>Delete Stack…</li>
+  <li class="hc-separator"></li>
+  <li>Page Setup…</li><li>Print Field…</li><li>Print Card<span class="hc-key">⌘P</span></li><li>Print Stack…</li><li>Print Report…</li>
+  <li class="hc-separator"></li>
+  <li>Quit HyperCard<span class="hc-key">⌘Q</span></li>
+</ul>
+
+<main class="demo" style="padding-top: 300px;">
+
+<!-- ===== Card in a document window ===== -->
+<section>
+  <h2>Card window · 512 × 342</h2>
+  <div class="hc-window" style="width: 514px;">
+    <div class="hc-titlebar"><button class="hc-close" aria-label="Close"></button><span class="hc-title">Home</span><button class="hc-zoom" aria-label="Zoom"></button></div>
+    <div class="hc-window-content">
+      <div class="hc-card" id="card-a">
+        <div class="hc-chicago hc-size-18" style="position:absolute; left: 0; right: 0; top: 24px; text-align:center;">Welcome to HyperCard</div>
+        <div class="hc-geneva" style="position:absolute; left: 32px; right: 32px; top: 64px; text-align:center;">Click a button to go to a card. Type into the field. Press ⌘M for the Message box.</div>
+        <div style="position:absolute; left: 32px; top: 104px; display:flex; gap: 24px;">
+          <a class="hc-button hc-button--icon" href="#"><span class="hc-icon"><svg viewBox="0 0 32 32"><rect x="4" y="6" width="22" height="16" fill="#fff" stroke="#000"/><rect x="8" y="10" width="22" height="16" fill="#fff" stroke="#000"/><rect x="6" y="8" width="22" height="16" fill="#fff" stroke="#000"/></svg></span>Stacks</a>
+          <a class="hc-button hc-button--icon" href="#"><span class="hc-icon"><svg viewBox="0 0 32 32"><path d="M4 8h24v18H4z" fill="#fff" stroke="#000"/><path d="M4 8l12 10 12-10" fill="none" stroke="#000"/></svg></span>Mail</a>
+          <a class="hc-button hc-button--icon" href="#"><span class="hc-icon"><svg viewBox="0 0 32 32"><path d="M6 6h20v20H6z" fill="#fff" stroke="#000"/><path d="M10 12h12M10 16h12M10 20h8" stroke="#000"/></svg></span>Notes</a>
+          <a class="hc-button hc-button--icon" href="#"><span class="hc-icon"><svg viewBox="0 0 32 32"><path d="M8 4h12l6 6v18H8z" fill="#fff" stroke="#000"/><path d="M20 4v6h6" fill="none" stroke="#000"/></svg></span>Readme</a>
+        </div>
+        <textarea class="hc-field hc-field--rectangle hc-field--lines" style="position:absolute; left: 32px; top: 176px; width: 288px; height: 96px;">The quick brown fox jumps over the lazy dog.
+Con cáo nâu nhanh nhẹn nhảy qua con chó lười.</textarea>
+        <div style="position:absolute; left: 344px; top: 176px; display:grid; gap: 8px;">
+          <button class="hc-button hc-button--roundrect">Find…</button>
+          <button class="hc-button hc-button--roundrect">Sort</button>
+          <button class="hc-button hc-button--roundrect is-hilite">New Card</button>
+        </div>
+        <div class="hc-nav">
+          <span class="hc-button hc-button--transparent" style="padding: 0;"><svg width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M14 6 L4 16 L14 26 L14 20 L28 20 L28 12 L14 12 Z" fill="#fff" stroke="#000"/><path d="M16 27 L16 22 L30 22 L30 14 L29 14 L29 21 L15 21 L15 27 Z" fill="#000"/></svg></span>
+          <span class="hc-counter">Card 1 of 12</span>
+          <span class="hc-button hc-button--transparent" style="padding: 0;"><svg width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M18 6 L28 16 L18 26 L18 20 L4 20 L4 12 L18 12 Z" fill="#fff" stroke="#000"/><path d="M20 27 L20 22 L6 22 L6 21 L19 21 L19 27 Z" fill="#000"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="hc-window is-inactive" style="width: 240px; height: 80px;">
+      <div class="hc-titlebar"><button class="hc-close" aria-label="Close"></button><span class="hc-title">Inactive window</span></div>
+      <div class="hc-window-content"></div>
+    </div>
+    <div class="hc-window" style="width: 240px; height: 80px;">
+      <div class="hc-titlebar"><button class="hc-close" aria-label="Close"></button><span class="hc-title">Grow box</span><button class="hc-zoom" aria-label="Zoom"></button></div>
+      <div class="hc-window-content"><div class="hc-growbox"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Buttons ===== -->
+<section>
+  <h2>Button styles (HyperCard 2.x)</h2>
+  <div class="row">
+    <div class="col"><span class="label">transparent</span><button class="hc-button hc-button--transparent">Transparent</button></div>
+    <div class="col"><span class="label">opaque</span><button class="hc-button hc-button--opaque">Opaque</button></div>
+    <div class="col"><span class="label">rectangle</span><button class="hc-button hc-button--rectangle">Rectangle</button></div>
+    <div class="col"><span class="label">shadow</span><button class="hc-button hc-button--shadow">Shadow</button></div>
+    <div class="col"><span class="label">roundRect</span><button class="hc-button hc-button--roundrect">Round Rect</button></div>
+  </div>
+  <div class="row">
+    <div class="col"><span class="label">standard</span><button class="hc-button hc-button--standard">Cancel</button></div>
+    <div class="col"><span class="label">default</span><button class="hc-button hc-button--default">OK</button></div>
+    <div class="col"><span class="label">oval</span><button class="hc-button hc-button--oval">Oval</button></div>
+    <div class="col"><span class="label">popup</span><button class="hc-button hc-button--popup">Geneva</button></div>
+    <div class="col"><span class="label">hilite</span><button class="hc-button hc-button--roundrect is-hilite">Pressed</button></div>
+    <div class="col"><span class="label">disabled</span><button class="hc-button hc-button--roundrect" disabled>Dimmed</button></div>
+  </div>
+  <div class="row">
+    <label class="hc-checkbox"><input type="checkbox" checked><span>Show Lines</span></label>
+    <label class="hc-checkbox"><input type="checkbox"><span>Wide Margins</span></label>
+    <label class="hc-checkbox"><input type="checkbox" disabled><span>Auto Tab</span></label>
+    <label class="hc-radio"><input type="radio" name="r" checked><span>Card</span></label>
+    <label class="hc-radio"><input type="radio" name="r"><span>Background</span></label>
+  </div>
+</section>
+
+<!-- ===== Fields ===== -->
+<section>
+  <h2>Field styles</h2>
+  <div class="row" style="align-items: start;">
+    <div class="col"><span class="label">transparent</span><div class="hc-field" style="width: 120px; height: 48px;">Transparent field text</div></div>
+    <div class="col"><span class="label">opaque</span><div class="hc-field hc-field--opaque" style="width: 120px; height: 48px;">Opaque field text</div></div>
+    <div class="col"><span class="label">rectangle</span><div class="hc-field hc-field--rectangle" style="width: 120px; height: 48px;">Rectangle field</div></div>
+    <div class="col"><span class="label">shadow</span><div class="hc-field hc-field--shadow" style="width: 120px; height: 48px;">Shadow field</div></div>
+  </div>
+  <div class="row" style="align-items: start;">
+    <div class="col"><span class="label">scrolling</span><div class="hc-field hc-field--scrolling" style="width: 200px; height: 80px;">Scrolling field. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</div></div>
+    <div class="col"><span class="label">rectangle + showLines + wideMargins</span><div class="hc-field hc-field--rectangle hc-field--lines hc-field--wide" style="width: 200px; height: 80px;">Wide margins leave about one character on each side and half a line on top.</div></div>
+    <div class="col"><span class="label">stand-alone scroll bar</span><div class="hc-scrollbar" style="height: 80px;"><button class="hc-arrow hc-arrow--up" aria-label="Up"></button><div class="hc-thumb"></div><button class="hc-arrow hc-arrow--down" aria-label="Down"></button></div></div>
+  </div>
+</section>
+
+<!-- ===== Dialogs and Message box ===== -->
+<section>
+  <h2>Dialog · Message box · windoid</h2>
+  <div class="hc-dialog" style="width: 360px;">
+    <div class="hc-dialog-body">
+      <div class="hc-chicago">Delete this card?</div>
+      <div class="hc-geneva" style="margin-top: 8px;">This cannot be undone.</div>
+    </div>
+    <div class="hc-dialog-buttons">
+      <button class="hc-button hc-button--standard">Cancel</button>
+      <button class="hc-button hc-button--default">OK</button>
+    </div>
+  </div>
+  <div class="hc-dialog-alt" style="width: 240px; padding: 12px;"><span class="hc-chicago">altDBoxProc dialog</span></div>
+  <div class="hc-windoid hc-message-box" style="width: 400px;">
+    <div class="hc-dragbar"><button class="hc-close" aria-label="Close"></button></div>
+    <input class="hc-geneva" value="go to card 3 of stack &quot;Addresses&quot;">
+  </div>
+</section>
+
+<!-- ===== Palettes and patterns ===== -->
+<section>
+  <h2>Tools · Patterns · gray</h2>
+  <div class="row" style="align-items: start;">
+    <div class="hc-palette hc-palette--tools" id="tools"></div>
+    <div class="hc-palette hc-palette--patterns" id="patterns"></div>
+    <div class="col">
+      <span class="label">pattern 13 (ltGray 25%)</span><div class="swatch hc-pattern-13"></div>
+      <span class="label">pattern 22 (gray 50%)</span><div class="swatch hc-pattern-22"></div>
+      <span class="label">pattern 23 (dkGray 75%)</span><div class="swatch hc-pattern-23"></div>
+      <span class="label">dimmed text</span><div class="hc-chicago hc-dimmed">Dimmed menu item</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Typography ===== -->
+<section>
+  <h2>Type</h2>
+  <div class="col">
+    <div class="hc-chicago">Chicago 12 — system font: menus, titles, button names. AaBbCc 0123456789</div>
+    <div class="hc-geneva">Geneva 12 — field text. The quick brown fox jumps over the lazy dog. Tiếng Việt có dấu.</div>
+    <div class="hc-geneva-9">Geneva 9 — small labels, card counters. AaBbCc 0123456789</div>
+    <div class="hc-script">Monaco 9 — on mouseUp&#10;  go to next card&#10;end mouseUp</div>
+    <div class="hc-serif">New York — serif body text in stacks. AaBbCc</div>
+    <div class="row">
+      <span class="hc-geneva hc-style-bold">bold</span><span class="hc-geneva hc-style-italic">italic</span><span class="hc-geneva hc-style-underline">underline</span>
+      <span class="hc-chicago hc-size-18 hc-style-outline">outline</span><span class="hc-chicago hc-size-18 hc-style-shadow">shadow</span>
+      <span class="hc-geneva hc-style-condense">condense</span><span class="hc-geneva hc-style-extend">extend</span>
+    </div>
+    <div class="row">
+      <span class="hc-geneva hc-size-9">9</span><span class="hc-geneva hc-size-10">10</span><span class="hc-geneva hc-size-12">12</span><span class="hc-geneva hc-size-14">14</span><span class="hc-geneva hc-size-18">18</span><span class="hc-geneva hc-size-24">24</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Visual effects ===== -->
+<section>
+  <h2>Visual effects</h2>
+  <div id="fx-controls">
+    <select id="fx-name"></select>
+    <select id="fx-speed"><option>very slowly</option><option>slowly</option><option selected></option><option>fast</option><option>very fast</option></select>
+    <select id="fx-to"><option value="">to card</option><option>to black</option><option>to white</option><option>to gray</option><option>to inverse</option></select>
+    <button class="hc-button hc-button--roundrect" id="fx-go">Go</button>
+    <span class="hc-monaco" id="fx-script"></span>
+  </div>
+  <div class="hc-stage hc-frame" id="stage">
+    <div class="hc-card" data-n="1">
+      <div class="hc-chicago hc-size-24" style="position:absolute; inset: 120px 0 auto 0; text-align:center;">Card One</div>
+      <div class="hc-pattern-14" style="position:absolute; left: 32px; right: 32px; top: 200px; height: 64px; border: 1px solid #000;"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script type="module">
+  import { HyperCardEffects } from '../effects/hypercard-effects.js';
+  // Tools palette: 18 cells, 3 x 6.
+  const tools = ['Browse', 'Button', 'Field', 'Select', 'Lasso', 'Pencil', 'Brush', 'Eraser', 'Line', 'Spray', 'Rect', 'RndRect', 'Bucket', 'Oval', 'Curve', 'Text', 'RegPoly', 'Polygon'];
+  document.getElementById('tools').innerHTML = tools.map((t, i) => `<div class="${i === 0 ? 'is-selected' : ''}" title="${t}" style="display:grid;place-items:center;font:9px/12px var(--hc-font-geneva-small);">${t.slice(0, 5)}</div>`).join('');
+  // Patterns palette: 40 cells, top-to-bottom then left-to-right.
+  const cells = [];
+  for (let r = 0; r < 10; r++) for (let c = 0; c < 4; c++) { const n = c * 10 + r + 1; cells.push(`<div class="hc-pattern-${n}${n === 12 ? ' is-selected' : ''}" title="pattern ${n}"></div>`); }
+  document.getElementById('patterns').innerHTML = cells.join('');
+  // Effects demo.
+  const sel = document.getElementById('fx-name');
+  sel.innerHTML = HyperCardEffects.effects.map(e => `<option${e === 'dissolve' ? ' selected' : ''}>${e}</option>`).join('');
+  const stage = document.getElementById('stage');
+  let n = 1;
+  function makeCard() {
+    n++;
+    const card = document.createElement('div'); card.className = 'hc-card'; card.dataset.n = n;
+    card.style.background = n % 2 ? '#fff' : '#fff';
+    card.innerHTML = `<div class="hc-chicago hc-size-24" style="position:absolute; inset: 120px 0 auto 0; text-align:center;">Card ${['One','Two','Three','Four','Five','Six'][(n - 1) % 6]}</div>
+      <div class="hc-pattern-${(n * 7) % 40 + 1}" style="position:absolute; left: 32px; right: 32px; top: 200px; height: 64px; border: 1px solid #000;"></div>
+      <div class="hc-counter" style="position:absolute; left:0; right:0; bottom:4px; text-align:center;">Card ${n}</div>`;
+    return card;
+  }
+  async function run() {
+    const script = `visual effect ${sel.value} ${document.getElementById('fx-speed').value} ${document.getElementById('fx-to').value}`.replace(/\s+/g, ' ').trim();
+    document.getElementById('fx-script').textContent = script + ' · go to next card';
+    document.getElementById('fx-go').disabled = true;
+    await HyperCardEffects.go(stage, makeCard(), script, { origin: { x: 256, y: 171 } });
+    document.getElementById('fx-go').disabled = false;
+  }
+  document.getElementById('fx-go').addEventListener('click', run);
+  window.hcDemo = { run, stage, HyperCardEffects };
+</script>
+</body>
+</html>

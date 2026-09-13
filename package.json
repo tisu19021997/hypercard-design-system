@@ -1,0 +1,18 @@
+{
+  "name": "hypercard-design-system",
+  "version": "0.1.0",
+  "description": "A design system that reproduces Apple HyperCard's 1-bit Macintosh look: tokens, CSS, visual effects, patterns, cursor, and agent-readable rules.",
+  "license": "MIT",
+  "type": "module",
+  "files": ["css", "tokens", "effects", "patterns", "cursors", "fonts", "docs", "README.md", "AGENTS.md"],
+  "exports": {
+    ".": "./css/hypercard.css",
+    "./css/*": "./css/*",
+    "./tokens": "./tokens/hypercard.tokens.json",
+    "./effects": "./effects/hypercard-effects.js"
+  },
+  "scripts": {
+    "build": "node scripts/build-patterns.mjs && node scripts/build-tokens.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}
