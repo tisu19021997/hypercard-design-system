@@ -1,0 +1,114 @@
+<div class="ab hc" style="width: 960px; height: 880px; padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+  <div class="ab-title">Visual effects</div>
+  <div class="ab-note">A Mac Plus redrew the screen in stages, and HyperCard made that a feature. Every transition is a sequence of frames showing only pixels of the old card, the new card or a destination image. Nothing blends, nothing eases. Stills below are mid-effect frames from old card <span class="hc-chicago">One</span> to new card <span class="hc-chicago">Two</span>.</div>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 24px;">
+    <!-- dissolve -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; -webkit-mask-image: var(--hc-pattern-6); mask-image: var(--hc-pattern-6); -webkit-mask-size: 8px 8px; mask-size: 8px 8px;"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">dissolve</div><div class="ab-cap">Denser and denser dither tiles (Bayer 8 × 8, 64 steps). Shown at 50 %.</div>
+    </div>
+    <!-- wipe left -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; clip-path: inset(0 0 0 45%);"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">wipe left · right · up · down</div><div class="ab-cap">A line sweeps across. Nothing moves.</div>
+    </div>
+    <!-- barn door open -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; clip-path: inset(0 30%);"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">barn door open · close</div><div class="ab-cap">Double wipe from (or to) the vertical centre.</div>
+    </div>
+    <!-- iris open -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; clip-path: inset(24% 24%);"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">iris open · close</div><div class="ab-cap">Rectangular aperture from (or to) the centre.</div>
+    </div>
+    <!-- checkerboard -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; -webkit-mask-image: repeating-conic-gradient(#000 0 25%, transparent 0 50%); mask-image: repeating-conic-gradient(#000 0 25%, transparent 0 50%); -webkit-mask-size: 25px 29.8px; mask-size: 25px 29.8px;"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">checkerboard</div><div class="ab-cap">16 × 9 squares; odd squares wipe first, then even.</div>
+    </div>
+    <!-- venetian blinds -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 14.9px); mask-image: repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 14.9px);"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">venetian blinds</div><div class="ab-cap">Nine strips replaced at once, top down.</div>
+    </div>
+    <!-- scroll left -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; transform: translate(45%, 0);"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">scroll · push</div><div class="ab-cap">Scroll: new card slides over the old. Push (2.2): both move.</div>
+    </div>
+    <!-- zoom open -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; left: 80px; top: 54px; width: 40px; height: 27px; border: 1px solid #000;"></div>
+        <div style="position: absolute; left: 60px; top: 40px; width: 80px; height: 54px; border: 1px solid #000;"></div>
+        <div style="position: absolute; left: 30px; top: 20px; width: 140px; height: 94px; border: 1px solid #000;"></div>
+      </div>
+      <div class="hc-chicago">zoom open · close</div><div class="ab-cap">Finder-style 1 px rectangles from the click point, then cut.</div>
+    </div>
+    <!-- shrink to top -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #000;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div>
+        <div style="position: absolute; inset: 0; background: #fff; transform: scaleY(0.45); transform-origin: 50% 0;"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div></div>
+      </div>
+      <div class="hc-chicago">shrink to top · center · bottom</div><div class="ab-cap">Old card squashes toward an edge.</div>
+    </div>
+    <!-- stretch from bottom -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; transform: scaleY(0.5); transform-origin: 50% 100%;"><div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center; color: #fff;">Two</div></div>
+      </div>
+      <div class="hc-chicago">stretch from top · center · bottom</div><div class="ab-cap">New card grows from an edge over the old.</div>
+    </div>
+    <!-- to black -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="position: relative; width: 200px; height: 134px; border: 1px solid #000; overflow: hidden; background: #fff;">
+        <div class="hc-chicago hc-size-18" style="position: absolute; inset: 56px 0 auto 0; text-align: center;">One</div>
+        <div style="position: absolute; inset: 0; background: #000; clip-path: inset(0 55% 0 0);"></div>
+      </div>
+      <div class="hc-chicago">… to black · white · gray · inverse</div><div class="ab-cap">Effect runs to a full-card image, then cuts to the new card.</div>
+    </div>
+    <!-- grammar -->
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="hc-field hc-field--rectangle hc-field--lines" style="width: 200px; height: 134px; padding: 0 4px;"><span class="hc-script">visual effect dissolve
+  slowly to black
+go to next card
+
+HyperCardEffects.go(stage,
+  card, 'wipe left fast')
+HyperCardEffects.hide(popup,
+  'dissolve fast')</span></div>
+      <div class="hc-chicago">Grammar</div><div class="ab-cap">name · very slowly | slowly | fast | very fast · to card | black | white | gray | inverse</div>
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 24px; margin-top: auto;">
+    <div class="ab-cap" style="flex: 1;"><span class="hc-chicago">Speeds</span> very slow 2400 ms · slow 1200 · normal 600 · fast 300 · very fast 150, at 12 frames per second. Calibrated by eye to a Mac Plus; tunable.</div>
+    <div class="ab-cap" style="flex: 1;"><span class="hc-chicago">Reduced motion</span> Every effect becomes a cut when prefers-reduced-motion is set. No CSS transitions anywhere; popups leave by dissolve or wipe, never by fading.</div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="ab hc" style="width: 960px; height: 700px; display: flex; flex-direction: column;">
+  <!-- Menu bar spans the artboard like a screen -->
+  <div class="hc-menubar">
+    <span class="hc-apple"><svg width="12" height="14" viewBox="0 0 12 14" shape-rendering="crispEdges" style="vertical-align: -2px;"><path d="M7 0h2v2H7zM5 3h5v1H4zM3 4h7v1H3zM2 5h9v1H2zM2 6h9v1H2zM2 7h9v1H2zM2 8h9v1H2zM2 9h9v1H2zM3 10h8v1H3zM3 11h7v1H3zM4 12h2v1H4zM7 12h2v1H7z" fill="#000"></path></svg></span>
+    <span class="is-open">File</span><span>Edit</span><span>Go</span><span>Tools</span><span>Objects</span><span>Font</span><span>Style</span>
+  </div>
+  <ul class="hc-menu" style="position: absolute; left: 25px; top: 20px;">
+    <li>New Stack…</li><li>Open Stack…<span class="hc-key">⌘O</span></li><li>Close Stack<span class="hc-key">⌘W</span></li>
+    <li class="hc-separator"></li>
+    <li class="hc-dimmed">Save a Copy…</li><li>Compact Stack</li><li>Protect Stack…</li><li>Delete Stack…</li>
+    <li class="hc-separator"></li>
+    <li>Page Setup…</li><li>Print Field…</li><li class="is-hilite">Print Card<span class="hc-key">⌘P</span></li><li>Print Stack…</li><li>Print Report…</li>
+    <li class="hc-separator"></li>
+    <li>Quit HyperCard<span class="hc-key">⌘Q</span></li>
+  </ul>
+
+  <div class="hc-desktop" style="flex: 1; position: relative;">
+    <div class="ab-title" style="position: absolute; left: 232px; top: 24px; background: #fff; padding: 0 6px;">Windows, dialogs, menus</div>
+    <div class="ab-note" style="position: absolute; left: 232px; top: 60px; width: 520px; background: #fff; padding: 2px 6px;">Menu bar 20 px (19 white + 1 black), Chicago 12, first title 7 px in, items 16 px with a 12 px checkmark column and a right column for ⌘ keys. Dimmed items dither; the pulled menu casts a 1 px shadow.</div>
+
+    <!-- Active document window -->
+    <div class="hc-window" style="position: absolute; left: 232px; top: 112px; width: 320px; height: 200px;">
+      <div class="hc-titlebar"><span class="hc-close"></span><span class="hc-title">Addresses</span><span class="hc-zoom"></span></div>
+      <div class="hc-window-content">
+        <div class="hc-geneva" style="position: absolute; left: 12px; top: 12px; right: 12px;">Active document window (documentProc). Title bar 19 px with 1 px line, six stripes on rows 4, 6, 8, 10, 12, 14; 6 px of white either side of the title; 11 × 11 close and zoom boxes 10 px in.</div>
+        <div class="hc-growbox"></div>
+      </div>
+    </div>
+    <div class="ab-spec" style="left: 560px; top: 118px;">← 1 px frame + 1 px shadow</div>
+
+    <!-- Inactive window -->
+    <div class="hc-window is-inactive" style="position: absolute; left: 600px; top: 140px; width: 300px; height: 96px;">
+      <div class="hc-titlebar"><span class="hc-close"></span><span class="hc-title">Inactive window</span><span class="hc-zoom"></span></div>
+      <div class="hc-window-content"><div class="hc-geneva" style="padding: 10px 12px;">Stripes and boxes vanish; the title is dithered.</div></div>
+    </div>
+
+    <!-- Dialog -->
+    <div class="hc-dialog" style="position: absolute; left: 232px; top: 348px; width: 360px;">
+      <div class="hc-dialog-body">
+        <div class="hc-chicago">Delete this card?</div>
+        <div class="hc-geneva" style="margin-top: 8px;">This cannot be undone.</div>
+      </div>
+      <div class="hc-dialog-buttons">
+        <div class="hc-button hc-button--standard">Cancel</div>
+        <div class="hc-button hc-button--default">OK</div>
+      </div>
+    </div>
+    <div class="ab-spec" style="left: 612px; top: 352px;">dBoxProc: 1 black · 2 white · 2 black · 3 white</div>
+    <div class="ab-spec" style="left: 612px; top: 368px;">13 px body padding · OK default, right · 12 px apart</div>
+
+    <!-- Alt dialog -->
+    <div class="hc-dialog-alt" style="position: absolute; left: 612px; top: 400px; width: 288px; padding: 12px;">
+      <div class="hc-chicago">altDBoxProc</div>
+      <div class="hc-geneva" style="margin-top: 4px;">1 px border, 2 px shadow. Used for movable modal panels.</div>
+    </div>
+
+    <!-- Message box -->
+    <div class="hc-windoid hc-message-box" style="position: absolute; left: 232px; top: 520px; width: 512px;">
+      <div class="hc-dragbar"><span class="hc-close"></span></div>
+      <div class="hc-message-text hc-geneva">go to card 3 of stack "Addresses"</div>
+    </div>
+    <div class="ab-spec" style="left: 752px; top: 524px;">Message box: windoid, 11 px pinstripe drag bar</div>
+
+    <!-- Tools palette windoid -->
+    <div class="hc-windoid" style="position: absolute; left: 24px; top: 300px;">
+      <div class="hc-dragbar"><span class="hc-close"></span></div>
+      <div class="hc-palette hc-palette--tools" style="border: 0;">
+        <div class="is-selected" style="display: grid; place-items: center;"><svg width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges"><path d="M6 0h1v1H6zM5 1h1v1H5zM7 1h1v1H7zM5 2h1v1H5zM7 2h1v1H7zM5 3h1v1H5zM7 3h1v1H7zM5 4h1v1H5zM7 4h1v1H7zM5 5h1v1H5zM7 5h1v1H7zM3 6h2v1H3zM5 6h1v1H5zM7 6h1v1H7zM9 6h1v1H9zM11 6h1v1H11zM2 7h1v1H2zM4 7h1v1H4zM6 7h1v1H6zM8 7h1v1H8zM10 7h1v1H10zM12 7h1v1H12zM1 8h1v1H1zM3 8h1v1H3zM13 8h1v1H13zM1 9h1v1H1zM13 9h1v1H13zM1 10h1v1H1zM13 10h1v1H13zM2 11h1v1H2zM12 11h1v1H12zM3 12h1v1H3zM11 12h1v1H11zM4 13h7v1H4z" fill="#fff"></path></svg></div>
+        <div style="display: grid; place-items: center;"><div style="width: 16px; height: 9px; border: 1px solid #000; border-radius: 3px;"></div></div>
+        <div style="display: grid; place-items: center;"><div style="width: 16px; height: 9px; border: 1px solid #000;"></div></div>
+        <div style="display: grid; place-items: center;"><div style="width: 14px; height: 10px; border: 1px dashed #000;"></div></div>
+        <div style="display: grid; place-items: center;"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M2 5 C2 1 14 1 14 5 C14 8 8 9 7 8 L5 11" fill="none" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M10 1l3 3-8 8-4 1 1-4z" fill="#fff" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M8 1l5 5-6 6H4l-3-3z" fill="#fff" stroke="#000"></path><path d="M4 12h3l4-4" fill="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="16" height="10" viewBox="0 0 16 10" shape-rendering="crispEdges"><path d="M1 3l5-2 9 5-5 3z" fill="#fff" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="16" height="10" viewBox="0 0 16 10" shape-rendering="crispEdges"><path d="M1 9L15 1" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M5 6h4v7H5z" fill="#fff" stroke="#000"></path><path d="M7 1v4M4 3h6" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><div style="width: 16px; height: 10px; border: 1px solid #000;"></div></div>
+        <div style="display: grid; place-items: center;"><div style="width: 16px; height: 10px; border: 1px solid #000; border-radius: 4px;"></div></div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M2 6l6-4 4 4-6 6z" fill="#fff" stroke="#000"></path><path d="M12 6v5" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><div style="width: 16px; height: 10px; border: 1px solid #000; border-radius: 50%;"></div></div>
+        <div style="display: grid; place-items: center;"><svg width="16" height="10" viewBox="0 0 16 10"><path d="M1 8 C4 -2 8 12 15 2" fill="none" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;" class="hc-chicago">A</div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M7 1l6 4-2 7H3L1 5z" fill="#fff" stroke="#000"></path></svg></div>
+        <div style="display: grid; place-items: center;"><svg width="14" height="14" viewBox="0 0 14 14" shape-rendering="crispEdges"><path d="M1 3l7-2 5 5-3 7-8-2z" fill="#fff" stroke="#000"></path></svg></div>
+      </div>
+    </div>
+    <div class="ab-spec" style="left: 24px; top: 448px; width: 180px; white-space: normal;">Tools palette: 3 × 6 cells of 28 × 20 on a 1 px grid, selected tool inverted. Glyphs here are schematic; Apple's bitmaps are not shipped.</div>
+
+    <div class="ab-spec" style="left: 24px; top: 560px; width: 180px; white-space: normal;">Desktop: 50 % gray pattern (22). Nothing on this screen is a color other than black or white.</div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="ab hc" style="width: 960px; height: 760px; padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+  <div class="ab-title">Controls</div>
+  <div class="ab-note">All eleven HyperCard 2.x button styles, check box and radio, the five field styles and the scroll bar. Buttons are 20 px tall in Chicago 12; OK and Cancel are 59 px wide. Pressed is inverse video; disabled is a 50 % dither. There is no hover.</div>
+
+  <div class="ab-h">Buttons</div>
+  <div style="display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">transparent</div><div class="hc-button hc-button--transparent">Transparent</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">opaque</div><div class="hc-button hc-button--opaque">Opaque</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">rectangle</div><div class="hc-button hc-button--rectangle">Rectangle</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">shadow · 2 px</div><div class="hc-button hc-button--shadow">Shadow</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">roundRect · r 7 + 2 px</div><div class="hc-button hc-button--roundrect">Round Rect</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">standard · r 5</div><div class="hc-button hc-button--standard">Cancel</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">default · 3 px ring</div><div class="hc-button hc-button--default">OK</div></div>
+  </div>
+  <div style="display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">oval</div><div class="hc-button hc-button--oval">Oval</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">popup</div><div class="hc-button hc-button--popup">Geneva</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">hilite (pressed)</div><div class="hc-button hc-button--roundrect is-hilite">Pressed</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">disabled (dither)</div><div class="hc-button hc-button--roundrect is-dimmed">Dimmed</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">icon + caption</div><div class="hc-button hc-button--icon"><span class="hc-icon"><svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="4.5" y="6.5" width="22" height="16" fill="#fff" stroke="#000"></rect><rect x="8.5" y="10.5" width="22" height="16" fill="#fff" stroke="#000"></rect></svg></span>Stacks</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">check box · 12 px box, label at +16</div><div style="display: flex; gap: 20px;"><label class="hc-checkbox"><input type="checkbox" checked=""><span>Show Lines</span></label><label class="hc-checkbox"><input type="checkbox"><span>Wide Margins</span></label></div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">radio · 6 px dot</div><div style="display: flex; gap: 20px;"><label class="hc-radio"><input type="radio" name="r" checked=""><span>Card</span></label><label class="hc-radio"><input type="radio" name="r"><span>Background</span></label></div></div>
+  </div>
+
+  <div class="ab-h">Fields</div>
+  <div style="display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">transparent</div><div class="hc-field" style="width: 132px; height: 48px;">Transparent field text</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">opaque</div><div class="hc-field hc-field--opaque" style="width: 132px; height: 48px;">Opaque field text</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">rectangle</div><div class="hc-field hc-field--rectangle" style="width: 132px; height: 48px;">Rectangle field</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">shadow · 2 px</div><div class="hc-field hc-field--shadow" style="width: 132px; height: 48px;">Shadow field</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">rectangle + showLines</div><div class="hc-field hc-field--rectangle hc-field--lines" style="width: 168px; height: 64px;">Dotted rules under every 16 px line.</div></div>
+    <div style="display: flex; flex-direction: column; gap: 6px;"><div class="ab-cap">scrolling · 16 px bar, 25 % track</div><div style="display: flex; width: 200px; height: 80px; border: 1px solid #000; background: #fff;"><div class="hc-field" style="flex: 1; height: 78px;">Scrolling field. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div><div class="hc-scrollbar" style="height: 78px;"><span class="hc-arrow hc-arrow--up"></span><span class="hc-thumb"></span><span class="hc-arrow hc-arrow--down"></span></div></div></div>
+  </div>
+
+  <div class="ab-h">Anatomy</div>
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+    <div style="position: relative; width: 200px; height: 72px;">
+      <div class="hc-button hc-button--default" style="position: absolute; left: 24px; top: 20px;">OK</div>
+      <div class="ab-spec" style="left: 0; top: 0;">ring 3 px, gap 1 px, ring radius 8</div>
+      <div class="ab-spec" style="left: 100px; top: 56px;">20 px tall · min 59 px</div>
+    </div>
+    <div style="position: relative; width: 200px; height: 72px;">
+      <label class="hc-checkbox" style="position: absolute; left: 8px; top: 24px;"><input type="checkbox" checked=""><span>Label</span></label>
+      <div class="ab-spec" style="left: 0; top: 0;">box 12 × 12 at +2, label at +16</div>
+      <div class="ab-spec" style="left: 0; top: 52px;">pressed = 2 px frame · on = corner-to-corner X</div>
+    </div>
+    <div style="position: relative; width: 240px; height: 72px;">
+      <div class="hc-scrollbar hc-scrollbar--horizontal" style="position: absolute; left: 0; top: 24px; width: 200px;"></div>
+      <div class="ab-spec" style="left: 0; top: 0;">scroll bar 16 px · fixed 16 × 16 thumb · ltGray track</div>
+      <div class="ab-spec" style="left: 0; top: 52px;">many recreations wrongly use 50 % gray here</div>
+    </div>
+  </div>
+</div>

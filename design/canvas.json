@@ -1,0 +1,68 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1000,
+      "h": 760,
+      "title": "Overview"
+    },
+    {
+      "file": "Typography.dc.html",
+      "x": 1100,
+      "y": 0,
+      "w": 760,
+      "h": 780
+    },
+    {
+      "file": "Controls.dc.html",
+      "x": 0,
+      "y": 900,
+      "w": 960,
+      "h": 760
+    },
+    {
+      "file": "WindowsMenus.dc.html",
+      "x": 1100,
+      "y": 900,
+      "w": 960,
+      "h": 700,
+      "title": "Windows & Menus"
+    },
+    {
+      "file": "Patterns.dc.html",
+      "x": 0,
+      "y": 1780,
+      "w": 760,
+      "h": 600
+    },
+    {
+      "file": "VisualEffects.dc.html",
+      "x": 1100,
+      "y": 1780,
+      "w": 960,
+      "h": 880,
+      "title": "Visual Effects"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "sources",
+      "x": 2200,
+      "y": 0,
+      "w": 300,
+      "text": "Every measurement is from Apple's Toolbox source, Inside Macintosh, the HyperCard Stack Design Guidelines (1989) or the HyperCard 2.x reference; confidence per value is recorded in research/ and tokens/hypercard.tokens.json.\n\nNo Apple fonts, icons or code are included. Chicago renders through Krungthep/Silom (macOS) or the open Chicago Kare recreation."
+    },
+    {
+      "id": "agents",
+      "x": 2200,
+      "y": 260,
+      "w": 300,
+      "text": "For coding agents: AGENTS.md (CLAUDE.md) in the repo lists the rules. Two colors, whole pixels from tokens, 1 px borders, hard shadows, Chicago for system text, Geneva for user text, HyperCardEffects.go() for transitions, no CSS transitions, no hover."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

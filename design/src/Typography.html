@@ -1,0 +1,44 @@
+<div class="ab hc" style="width: 760px; height: 780px; padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+  <div class="ab-title">Typography</div>
+  <div class="ab-note">Two voices: Chicago speaks for the system, Geneva for the user. Every role is paired with its bitmap line height. Sizes are only 9, 10, 12, 14, 18, 24.</div>
+
+  <div class="ab-h">Roles</div>
+  <div style="display: grid; grid-template-columns: 96px 1fr 172px; gap: 8px 16px; align-items: baseline;">
+    <div class="ab-cap">Chicago 12 / 16</div><div class="hc-chicago">Menus, titles, button names, alerts. AaBbCc 0123456789</div><div class="ab-cap">.hc-chicago · anything the system says</div>
+    <div class="ab-cap">Geneva 12 / 16</div><div class="hc-geneva">Fields, Message box, body copy. Tiếng Việt có dấu, café, naïve.</div><div class="ab-cap">.hc-geneva · anything the user says</div>
+    <div class="ab-cap">Geneva 9 / 12</div><div class="hc-geneva-9">Card counters, icon captions, footnotes. AaBbCc 0123456789</div><div class="ab-cap">.hc-geneva-9 · small labels</div>
+    <div class="ab-cap">Monaco 9 / 12</div><div class="hc-script">on mouseUp
+  visual effect dissolve slowly
+  go to next card
+end mouseUp</div><div class="ab-cap">.hc-monaco / .hc-script · HyperTalk</div>
+    <div class="ab-cap">New York 12 / 16</div><div class="hc-serif">Optional serif for book-like stacks. Never in chrome.</div><div class="ab-cap">.hc-serif · Times stands in</div>
+  </div>
+
+  <div class="ab-h">Sizes (Style menu)</div>
+  <div style="display: flex; gap: 24px; align-items: baseline;">
+    <span class="hc-geneva hc-size-9">Geneva 9</span><span class="hc-geneva hc-size-10">Geneva 10</span><span class="hc-geneva hc-size-12">Geneva 12</span><span class="hc-geneva hc-size-14">Geneva 14</span><span class="hc-geneva hc-size-18">Geneva 18</span><span class="hc-geneva hc-size-24">Geneva 24</span>
+  </div>
+  <div class="ab-cap">Line heights 12 · 12 · 16 · 18 · 22 · 28. HyperCard's textHeight default is trunc(4/3 × textSize).</div>
+
+  <div class="ab-h">Styles</div>
+  <div style="display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap;">
+    <span class="hc-geneva">plain</span><span class="hc-geneva hc-style-bold">bold</span><span class="hc-geneva hc-style-italic">italic</span><span class="hc-geneva hc-style-underline">underline</span><span class="hc-chicago hc-size-18 hc-style-outline">outline</span><span class="hc-chicago hc-size-18 hc-style-shadow">shadow</span><span class="hc-geneva hc-style-condense">condense</span><span class="hc-geneva hc-style-extend">extend</span>
+  </div>
+
+  <div class="ab-h">Chicago 12 metrics</div>
+  <div style="display: flex; gap: 32px; align-items: flex-start;">
+    <div style="position: relative; width: 240px; height: 64px; border-top: 1px dashed #000; border-bottom: 1px dashed #000; margin-top: 8px;">
+      <div class="hc-chicago hc-size-24" style="position: absolute; left: 0; top: 4px; font-size: 36px; line-height: 48px;">Hxg</div>
+      <div class="ab-spec" style="right: 0; top: -8px;">ascent 12</div>
+      <div class="ab-spec" style="right: 0; bottom: -8px;">descent 3 + leading 1</div>
+      <div style="position: absolute; left: 0; right: 0; top: 38px; border-top: 1px dotted #000;"></div>
+      <div class="ab-spec" style="right: 0; top: 30px;">baseline</div>
+    </div>
+    <div class="ab-note" style="width: 380px;">Cap height 9, x-height 7, 2 px stems, 4 px space, 16 px line. Krungthep and Silom (macOS) carry Chicago's Latin glyphs; the open recreation Chicago Kare is pixel-exact when placed in fonts/. Geneva 12 is Apple's Geneva.ttf and covers Vietnamese, which is why user text never goes in Chicago.</div>
+  </div>
+
+  <div style="display: flex; gap: 12px; margin-top: auto;">
+    <div class="ab-cap" style="flex: 1;"><span class="hc-chicago">Do</span> Title Case button names with a real ellipsis ("Print…"). System text in Chicago, user text in Geneva.</div>
+    <div class="ab-cap" style="flex: 1;"><span class="hc-chicago">Don't</span> Weights other than normal/bold, sizes outside the six, letter-spacing other than ±1 px, text-transform, font smoothing.</div>
+  </div>
+</div>

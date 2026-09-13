@@ -1,0 +1,79 @@
+<div class="ab hc" style="width: 1000px; height: 760px; padding: 32px; display: flex; flex-direction: column; gap: 24px;">
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="ab-title">HyperCard Design System</div>
+      <div class="ab-note">Apple HyperCard on a 1-bit Macintosh, 1987–1998. Tokens, CSS, effects, patterns, and rules for people and agents. Repo: hypercard-design-system</div>
+    </div>
+    <div class="ab-cap" style="text-align: right; white-space: nowrap;">512 × 342 card · Chicago 12 · Geneva 12 · two colors</div>
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start;">
+    <!-- Rules column -->
+    <div style="display: flex; flex-direction: column; gap: 16px; width: 372px;">
+      <div class="ab-h">Five rules</div>
+      <div style="display: flex; gap: 12px;"><div class="hc-chicago" style="width: 16px;">1</div><div><span class="hc-chicago">Two colors.</span> #000 and #fff. Gray is a pattern or a dither mask, never a hex value, never opacity.</div></div>
+      <div style="display: flex; gap: 12px;"><div class="hc-chicago" style="width: 16px;">2</div><div><span class="hc-chicago">Whole pixels.</span> Menu bar 20, title bar 19 + 1, button 20, OK 59, scroll bar 16, checkbox 12. Integers from Apple's Toolbox code.</div></div>
+      <div style="display: flex; gap: 12px;"><div class="hc-chicago" style="width: 16px;">3</div><div><span class="hc-chicago">Hard edges.</span> 1 px black borders. Shadows are solid offsets: 1 px windows, 2 px shadow parts. No blur, no gradient, no anti-aliasing.</div></div>
+      <div style="display: flex; gap: 12px;"><div class="hc-chicago" style="width: 16px;">4</div><div><span class="hc-chicago">Two voices of type.</span> Chicago 12 speaks for the system. Geneva 12 speaks for the user. Geneva 9 for small labels, Monaco 9 for scripts.</div></div>
+      <div style="display: flex; gap: 12px;"><div class="hc-chicago" style="width: 16px;">5</div><div><span class="hc-chicago">Stepped motion.</span> Cards change with a visual effect drawn in discrete frames: dissolve, wipe, iris, checkerboard, venetian blinds, zoom. Nothing eases or fades.</div></div>
+
+      <div class="ab-h" style="margin-top: 8px;">Gray, the HyperCard way</div>
+      <div style="display: flex; gap: 12px; align-items: flex-end;">
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;"><div style="width: 56px; height: 28px; border: 1px solid #000; background: #fff;"></div><div class="ab-cap">white</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;"><div class="hc-pattern hc-pattern-13" style="width: 56px; height: 28px; border: 1px solid #000;"></div><div class="ab-cap">ltGray · 13</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;"><div class="hc-pattern hc-pattern-22" style="width: 56px; height: 28px; border: 1px solid #000;"></div><div class="ab-cap">gray · 22</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;"><div class="hc-pattern hc-pattern-23" style="width: 56px; height: 28px; border: 1px solid #000;"></div><div class="ab-cap">dkGray · 23</div></div>
+        <div style="display: flex; flex-direction: column; gap: 4px; align-items: center;"><div style="width: 56px; height: 28px; border: 1px solid #000; background: #000;"></div><div class="ab-cap">black</div></div>
+      </div>
+
+      <div class="ab-h" style="margin-top: 8px;">Use it</div>
+      <div class="ab-code">&lt;link rel="stylesheet" href="css/hypercard.css"&gt;
+&lt;body class="hc"&gt;
+  &lt;div class="hc-card"&gt;
+    &lt;button class="hc-button hc-button--roundrect"&gt;OK&lt;/button&gt;
+  &lt;/div&gt;
+
+import { HyperCardEffects } from './effects/hypercard-effects.js';
+await HyperCardEffects.go(stage, next, 'dissolve slowly to black');</div>
+    </div>
+
+    <!-- Home card in a document window -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="hc-window" style="width: 514px;">
+        <div class="hc-titlebar"><span class="hc-close"></span><span class="hc-title">Home</span><span class="hc-zoom"></span></div>
+        <div class="hc-window-content">
+          <div class="hc-card">
+            <div class="hc-chicago hc-size-18" style="position: absolute; left: 0; right: 0; top: 24px; text-align: center;">Welcome to HyperCard</div>
+            <div class="hc-geneva" style="position: absolute; left: 32px; right: 32px; top: 64px; text-align: center;">Click a button to go to a card. Type into the field. Press ⌘M for the Message box.</div>
+            <div style="position: absolute; left: 32px; top: 104px; display: flex; gap: 24px;">
+              <div class="hc-button hc-button--icon"><span class="hc-icon"><svg viewBox="0 0 32 32" shape-rendering="crispEdges"><rect x="4.5" y="6.5" width="22" height="16" fill="#fff" stroke="#000"></rect><rect x="8.5" y="10.5" width="22" height="16" fill="#fff" stroke="#000"></rect><rect x="6.5" y="8.5" width="22" height="16" fill="#fff" stroke="#000"></rect></svg></span>Stacks</div>
+              <div class="hc-button hc-button--icon"><span class="hc-icon"><svg viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M4.5 8.5h24v18h-24z" fill="#fff" stroke="#000"></path><path d="M4.5 8.5l12 10 12-10" fill="none" stroke="#000"></path></svg></span>Mail</div>
+              <div class="hc-button hc-button--icon"><span class="hc-icon"><svg viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M6.5 6.5h20v20h-20z" fill="#fff" stroke="#000"></path><path d="M10 12.5h12M10 16.5h12M10 20.5h8" stroke="#000"></path></svg></span>Notes</div>
+              <div class="hc-button hc-button--icon"><span class="hc-icon"><svg viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M8.5 4.5h12l6 6v18h-18z" fill="#fff" stroke="#000"></path><path d="M20.5 4.5v6h6" fill="none" stroke="#000"></path></svg></span>Readme</div>
+            </div>
+            <div class="hc-field hc-field--rectangle hc-field--lines" style="position: absolute; left: 32px; top: 176px; width: 288px; height: 96px;">The quick brown fox jumps over the lazy dog.
+Con cáo nâu nhanh nhẹn nhảy qua con chó lười.</div>
+            <div style="position: absolute; left: 344px; top: 176px; display: grid; gap: 8px;">
+              <div class="hc-button hc-button--roundrect">Find…</div>
+              <div class="hc-button hc-button--roundrect">Sort</div>
+              <div class="hc-button hc-button--roundrect is-hilite">New Card</div>
+            </div>
+            <div class="hc-nav">
+              <span style="display: inline-block; width: 32px; height: 32px;"><svg width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M14 6 L4 16 L14 26 L14 20 L28 20 L28 12 L14 12 Z" fill="#fff" stroke="#000"></path><path d="M16 27 L16 22 L30 22 L30 14 L29 14 L29 21 L15 21 L15 27 Z" fill="#000"></path></svg></span>
+              <span class="hc-counter">Card 1 of 12</span>
+              <span style="display: inline-block; width: 32px; height: 32px;"><svg width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges"><path d="M18 6 L28 16 L18 26 L18 20 L4 20 L4 12 L18 12 Z" fill="#fff" stroke="#000"></path><path d="M20 27 L20 22 L6 22 L6 21 L19 21 L19 27 Z" fill="#000"></path></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ab-cap" style="text-align: center;">A card in a document window: 1 px frame, 1 px hard shadow, six title stripes on rows 4–14, 11 × 11 close and zoom boxes.</div>
+      <div style="display: flex; gap: 20px; justify-content: center; margin-top: 8px;">
+        <div class="ab-cap" style="border: 1px solid #000; padding: 2px 6px;">Typography</div>
+        <div class="ab-cap" style="border: 1px solid #000; padding: 2px 6px;">Controls</div>
+        <div class="ab-cap" style="border: 1px solid #000; padding: 2px 6px;">Windows &amp; Menus</div>
+        <div class="ab-cap" style="border: 1px solid #000; padding: 2px 6px;">Patterns</div>
+        <div class="ab-cap" style="border: 1px solid #000; padding: 2px 6px;">Visual Effects</div>
+      </div>
+    </div>
+  </div>
+</div>

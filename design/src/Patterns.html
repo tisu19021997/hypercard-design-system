@@ -1,0 +1,57 @@
+<div class="ab hc" style="width: 760px; height: 600px; padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+  <div class="ab-title">Patterns, states, cursor</div>
+  <div class="ab-note">HyperCard has no gray. Its 40 paint patterns are 8 × 8 tiles; three of them are QuickDraw's ltGray, gray and dkGray. Disabled is a 50 % mask, selected is inverse video, inactive is a dithered title.</div>
+
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="ab-h">Patterns palette · 4 × 10</div>
+      <div class="hc-palette hc-palette--patterns" style="grid-template-columns: repeat(4, 40px); grid-auto-rows: 28px;">
+        <div class="hc-pattern-1"></div><div class="hc-pattern-11"></div><div class="hc-pattern-21"></div><div class="hc-pattern-31"></div>
+        <div class="hc-pattern-2"></div><div class="hc-pattern-12 is-selected"></div><div class="hc-pattern-22"></div><div class="hc-pattern-32"></div>
+        <div class="hc-pattern-3"></div><div class="hc-pattern-13"></div><div class="hc-pattern-23"></div><div class="hc-pattern-33"></div>
+        <div class="hc-pattern-4"></div><div class="hc-pattern-14"></div><div class="hc-pattern-24"></div><div class="hc-pattern-34"></div>
+        <div class="hc-pattern-5"></div><div class="hc-pattern-15"></div><div class="hc-pattern-25"></div><div class="hc-pattern-35"></div>
+        <div class="hc-pattern-6"></div><div class="hc-pattern-16"></div><div class="hc-pattern-26"></div><div class="hc-pattern-36"></div>
+        <div class="hc-pattern-7"></div><div class="hc-pattern-17"></div><div class="hc-pattern-27"></div><div class="hc-pattern-37"></div>
+        <div class="hc-pattern-8"></div><div class="hc-pattern-18"></div><div class="hc-pattern-28"></div><div class="hc-pattern-38"></div>
+        <div class="hc-pattern-9"></div><div class="hc-pattern-19"></div><div class="hc-pattern-29"></div><div class="hc-pattern-39"></div>
+        <div class="hc-pattern-10"></div><div class="hc-pattern-20"></div><div class="hc-pattern-30"></div><div class="hc-pattern-40"></div>
+      </div>
+      <div class="ab-cap">Order: top-to-bottom, then left-to-right. 1 is white, 12 is black (selected). --hc-pattern-N · .hc-pattern-N</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; flex: 1;">
+      <div class="ab-h">Gray ramp (dissolve density)</div>
+      <div style="display: flex; gap: 0;">
+        <div class="hc-pattern hc-pattern-1" style="width: 46px; height: 32px; border: 1px solid #000;"></div>
+        <div class="hc-pattern hc-pattern-2" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-3" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-4" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-5" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-6" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-7" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-8" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-9" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-10" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+        <div class="hc-pattern hc-pattern-12" style="width: 46px; height: 32px; border: 1px solid #000; border-left: 0;"></div>
+      </div>
+      <div class="ab-cap">A dissolve steps through denser and denser tiles like these (the module uses an 8 × 8 Bayer order, 64 steps).</div>
+
+      <div class="ab-h">States</div>
+      <div style="display: grid; grid-template-columns: 120px 1fr; gap: 10px 16px; align-items: center;">
+        <div class="hc-button hc-button--roundrect">Normal</div><div class="ab-cap">1 px frame, 2 px shadow, Chicago 12</div>
+        <div class="hc-button hc-button--roundrect is-hilite">Pressed</div><div class="ab-cap">.is-hilite / :active — inverse video of the whole rectangle</div>
+        <div class="hc-button hc-button--roundrect is-dimmed">Disabled</div><div class="ab-cap">.is-dimmed / disabled — 50 % dither mask (pattern 22)</div>
+        <div class="hc-geneva" style="background: #000; color: #fff; padding: 0 2px; width: max-content;">selected text</div><div class="ab-cap">::selection — inverse video</div>
+        <div class="hc-geneva hc-ants" style="width: max-content; padding: 2px;">marquee</div><div class="ab-cap">.hc-ants — marching 1 px dashed selection</div>
+        <div class="hc-chicago hc-dimmed">Save a Copy…</div><div class="ab-cap">dimmed menu item</div>
+      </div>
+
+      <div class="ab-h">Browse hand · 16 × 16, hotspot (6, 0)</div>
+      <div style="display: flex; gap: 24px; align-items: center;">
+        <svg width="64" height="64" viewBox="0 0 16 16" shape-rendering="crispEdges" style="image-rendering: pixelated;"><path d="M6 0h2v1H6zM5 1h1v1H5zM8 1h1v1H8zM5 2h1v1H5zM8 2h1v1H8zM5 3h1v1H5zM8 3h1v1H8zM5 4h1v1H5zM8 4h1v1H8zM5 5h1v1H5zM8 5h1v1H8zM10 5h1v1H10zM5 6h1v1H5zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM3 7h1v1H3zM5 7h1v1H5zM8 7h1v1H8zM10 7h1v1H10zM12 7h1v1H12zM14 7h1v1H14zM2 8h1v1H2zM4 8h1v1H4zM6 8h1v1H6zM15 8h1v1H15zM1 9h1v1H1zM3 9h1v1H3zM15 9h1v1H15zM1 10h1v1H1zM15 10h1v1H15zM1 11h1v1H1zM15 11h1v1H15zM2 12h1v1H2zM14 12h1v1H14zM2 13h1v1H2zM14 13h1v1H14zM3 14h1v1H3zM13 14h1v1H13zM3 15h11v1H3z" fill="#000"></path><path d="M6 1h2v14H6zM9 6h1v9H9zM11 7h1v8H11zM13 8h1v7H13zM4 9h2v6H4zM2 10h2v3H2zM3 13h1v2H3z" fill="#fff"></path></svg>
+        <div class="ab-cap" style="width: 220px;">The only hover feedback HyperCard has. Applied by --hc-cursor-browse-2x to .hc-button, links and buttons inside .hc-card. Drawn here 4×.</div>
+      </div>
+    </div>
+  </div>
+</div>
