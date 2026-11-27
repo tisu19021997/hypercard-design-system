@@ -15,8 +15,8 @@ All classes are in `css/hypercard.css`; all numbers are in `tokens/hypercard.tok
 </ul>
 ```
 
-- Bar: 20 px = 19 white rows + 1 px black line; Chicago 12 with baseline at row 14; first title's text 7 px from the left; each title cell is text width + 13.
-- Pulled menu: 1 px border, 1 px hard shadow, items 16 px tall, 14 px left padding (checkmark column) and 13 px right; separators are a dotted 1-on/1-off rule.
+- Bar: 20 px = 19 white rows + 1 px black line; Chicago 12 with baseline at row 14; first title's text 7 px from the left; each title cell is text width + 13. An open title inverts rows 1 to 18; row 0 stays white.
+- Pulled menu: 1 px border with no top line (the menu hangs from the bar's line, so `top: 20px` puts the first item right under it), 1 px hard shadow, items 16 px tall, 14 px left padding (checkmark column) and 13 px right; separators are a dotted 1-on/1-off rule.
 - Hilite (`.is-hilite`, `:hover`) inverts the item. Dimmed items are dithered.
 
 ## Window
