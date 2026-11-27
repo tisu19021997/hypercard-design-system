@@ -56,20 +56,21 @@
 .hc-menu > li.hc-separator::before { content: ""; width: 100%; height: 1px; background: var(--hc-pattern-24); background-size: 8px 8px; } /* dotted */
 
 /* ---------- Window (documentProc / zoomDocProc) ---------- */
+/* Rows count from the window's top frame line (row 0): stripes and boxes on rows 4-14, the line under the title bar on row 18. */
 .hc-window {
   position: relative; display: flex; flex-direction: column;
   background: var(--hc-color-white); border: 1px solid var(--hc-color-black); box-shadow: 1px 1px 0 var(--hc-color-black);
 }
 .hc-titlebar {
-  position: relative; height: var(--hc-window-titlebar-height); border-bottom: 1px solid var(--hc-color-black);
-  background: var(--hc-color-white) repeating-linear-gradient(to bottom, var(--hc-color-black) 0 1px, transparent 1px 2px) 0 4px / 100% 11px no-repeat;
-  text-align: center; font: 12px/19px var(--hc-font-chicago); user-select: none; white-space: nowrap;
+  position: relative; height: calc(var(--hc-window-titlebar-height) - var(--hc-window-border)); border-bottom: 1px solid var(--hc-color-black);
+  background: var(--hc-color-white) repeating-linear-gradient(to bottom, var(--hc-color-black) 0 1px, transparent 1px 2px) 0 3px / 100% 11px no-repeat;
+  text-align: center; font: 12px/17px var(--hc-font-chicago); user-select: none; white-space: nowrap;
 }
 .hc-titlebar > .hc-title { display: inline-block; padding: 0 6px; background: var(--hc-color-white); max-width: calc(100% - 64px); overflow: hidden; text-overflow: clip; }
 .hc-titlebar > .hc-close, .hc-titlebar > .hc-zoom {
-  position: absolute; top: 3px; width: 13px; height: 13px; padding: 0; border: 0; background: var(--hc-color-white); cursor: default;
+  position: absolute; top: 2px; width: 13px; height: 13px; padding: 0; border: 0; background: var(--hc-color-white); cursor: default;
 }
-.hc-titlebar > .hc-close { left: 9px; } .hc-titlebar > .hc-zoom { right: 9px; }
+.hc-titlebar > .hc-close { left: 7px; } .hc-titlebar > .hc-zoom { right: 7px; }
 .hc-titlebar > .hc-close::before, .hc-titlebar > .hc-zoom::before { content: ""; position: absolute; inset: 1px; border: 1px solid var(--hc-color-black); }
 .hc-titlebar > .hc-zoom::after { content: ""; position: absolute; left: 1px; top: 1px; width: 7px; height: 7px; border-right: 1px solid var(--hc-color-black); border-bottom: 1px solid var(--hc-color-black); }
 .hc-titlebar > .hc-close:active::before, .hc-titlebar > .hc-zoom:active::before { background: var(--hc-color-black); }

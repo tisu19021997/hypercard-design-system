@@ -66,7 +66,7 @@
   --hc-menubar-submenu-arrow-height: 11px;
   --hc-menubar-submenu-arrow-right: 14px;
   --hc-menubar-submenu-arrow-top: 2px;
-  --hc-window-titlebar-height: 19px; /* Plus the 1 px line beneath = the 20 px of Inside Macintosh prose. */
+  --hc-window-titlebar-height: 19px; /* Rows 0-18 counted from the window's top frame line, the line above the content on row 18. .hc-titlebar sits under the frame line, so it is 18 px including that line. */
   --hc-window-stripe-first-row: 4px;
   --hc-window-stripe-pitch: 2px;
   --hc-window-stripe-count: 6;
@@ -75,7 +75,7 @@
   --hc-window-title-baseline: 13px;
   --hc-window-box-size: 11px; /* Close and zoom boxes: 11x11 hollow squares in a 13x13 cell. */
   --hc-window-box-top: 4px;
-  --hc-window-box-inset: 10px; /* From the frame to the box outline, both sides. */
+  --hc-window-box-inset: 9px; /* From the frame line to the box outline, both sides: 8 px of white inside the frame, then the box. */
   --hc-window-zoom-inner: 6px; /* Zoom box inner square, top-left. */
   --hc-window-grow-box: 15px;
   --hc-window-border: 1px;

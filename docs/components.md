@@ -28,9 +28,9 @@ All classes are in `css/hypercard.css`; all numbers are in `tokens/hypercard.tok
 </div>
 ```
 
-- Frame 1 px black + 1 px hard shadow right/bottom. Title bar 19 px, 1 px line beneath.
+- Frame 1 px black + 1 px hard shadow right/bottom. Title bar 19 px counted from the frame line: rows 0 to 18, the line beneath it on row 18.
 - Six 1 px stripes on rows 4, 6, 8, 10, 12, 14. Title in Chicago 12 centered with 6 px of white on each side.
-- Close box: 11 × 11 hollow square 10 px in from the frame. Zoom box: same on the right with a 6 px inner square top-left. Pressing fills the box.
+- Close box: 11 × 11 hollow square 9 px in from the frame line (8 px of white, then the box). Zoom box: same on the right with a 6 px inner square top-left. Pressing fills the box.
 - `.is-inactive`: stripes and boxes disappear, title is dithered.
 - Grow box: 15 × 15 at bottom right with the two overlapping squares.
 
