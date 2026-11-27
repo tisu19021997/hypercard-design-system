@@ -15,7 +15,7 @@ In CSS this means two colors, `-webkit-font-smoothing: none`, `image-rendering: 
 
 ## 2. Whole pixels at 72 dpi
 
-Apple's Toolbox draws with integer coordinates, and the metrics are exact: a 20 px menu bar (19 white rows and 1 black line), a 19 px title bar plus its 1 px bottom line, a 20 px push button, a 16 px scroll bar, a 59 px OK button, a 12 px checkbox whose label starts 16 px in. `tokens/hypercard.tokens.json` records each of these with its source. A modern 4 or 8 pt spacing grid is not HyperCard; use the numbers.
+Apple's Toolbox draws with integer coordinates, and the metrics are exact: a 20 px menu bar (19 white rows and 1 black line), a 19 px title bar from the frame line to the line beneath it, a 20 px push button, a 16 px scroll bar, a 59 px OK button, a 12 px checkbox whose label starts 16 px in. `tokens/hypercard.tokens.json` records each of these with its source. A modern 4 or 8 pt spacing grid is not HyperCard; use the numbers.
 
 ## 3. Two voices of type
 

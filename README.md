@@ -101,7 +101,7 @@ npm run shots   # re-screenshot examples/index.html into docs/images (uses your 
 
 ## Scope and honesty
 
-- Sizes come from Apple's code where it exists (menu bar 20 px, title bar 19 + 1 px, buttons 20 px, OK/Cancel 59 px, scroll bar 16 px, dialog border 1/2/2/3, checkbox 12 px, default ring 3 px + 1 px gap). Where they come from screenshots or prose, the token description says *medium* or *low* confidence.
+- Sizes come from Apple's code where it exists (menu bar 20 px, title bar 19 px from the frame line to the line beneath, buttons 20 px, OK/Cancel 59 px, scroll bar 16 px, dialog border 1/2/2/3, checkbox 12 px, default ring 3 px + 1 px gap). Where they come from screenshots or prose, the token description says *medium* or *low* confidence.
 - HyperCard's Tools palette icons and the 32×32 button icons are not included; they are Apple bitmaps. The palette layout, cell sizes and icon slot are.
 - Effects are reconstructed from Apple's descriptions and screen recordings, not from the original code. Speeds (very slow 2400 ms … very fast 150 ms) are calibrated by eye to a Mac Plus and are tunable via `options.speeds`.
 - Chromium only honors `-webkit-font-smoothing: none` on macOS. On other platforms text will be anti-aliased unless you ship the bitmap-style recreations.
